@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width" />
@@ -7,13 +6,9 @@
 <link rel="stylesheet" href="wp-admin/css/install.css?ver=20100228" type="text/css" />
 </head>
 <body>
-<h1 id="logo">
-<a href="https://wordpress.org/"><img alt="WordPress" src="wp-admin/images/wordpress-logo.png" /></a>
-<br /> Version 4.3.1
-</h1>
-<p style="text-align: center">Semantic Personal Publishing Platform</p>
 
-<h1>Welcome</h1>
+
+<h1>WPToday</h1>
 <p>WPToday is a simple, elegant WordPress theme for small lightweight websites, built on Twitter Bootstrap</p>
 
 <h1>Share the Love</h1>
