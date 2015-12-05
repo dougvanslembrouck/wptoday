@@ -24,12 +24,12 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="http://localhost:8888/wptoday/wp-content/themes/wptoday/bootstrap/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="http://localhost:8888/wptoday/wp-content/themes/wptoday/bootstrap/js/bootstrap.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/bootstrap/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/bootstrap/js/bootstrap.min.js"></script>
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-<script src="http://localhost:8888/wptoday/wp-content/themes/wptoday/bootstrap/js/vendor/holder.min.js"></script>
+<script src="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/bootstrap/js/vendor/holder.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="http://localhost:8888/wptoday/wp-content/themes/wptoday/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+<script src="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 </html>

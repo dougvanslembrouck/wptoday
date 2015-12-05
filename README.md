@@ -7,13 +7,11 @@
 </head>
 <body>
 
-
 <h1>WPToday</h1>
 <p>WPToday is a simple, elegant WordPress theme for small lightweight websites, built on Twitter Bootstrap</p>
 
 <h2>Our Vision</h2>
-<p>We believe that WordPress is the future of The Web. We also believe that JavaScript is important for building a future-proof WordPress platform.</p>
-<p>Today is the day to mind our manners, be nice, and create great projects together as a global team.</p>
-
+<p>We believe that WordPress is the future of The Web. We also believe that JavaScript is important for building a future-proof WordPress app platform. 
+Today is the day to mind our manners, follow best practices, be nice, and create great projects together as a global team.</p>
 </body>
 </html>

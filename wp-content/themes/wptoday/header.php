@@ -21,14 +21,14 @@
 <?php wp_head(); ?>
     
 <!-- Bootstrap core CSS -->
-<link href="http://localhost:8888/wptoday/wp-content/themes/wptoday/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<link href="http://localhost:8888/wptoday/wp-content/themes/wptoday/bootstrap/js/ie10-viewport-bug-workaround.css" rel="stylesheet">
+<link href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/bootstrap/js/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-<script src="http://localhost:8888/wptoday/wp-content/themes/wptoday/bootstrap/js/ie-emulation-modes-warning.js"></script>
+<script src="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/bootstrap/js/ie-emulation-modes-warning.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -37,7 +37,7 @@
 <![endif]-->
 
 <!-- Custom styles for this template -->
-<link href="http://localhost:8888/wptoday/wp-content/themes/wptoday/carousel.css" rel="stylesheet">
+<link href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/carousel.css" rel="stylesheet">
 
 </head>
 
