@@ -141,15 +141,15 @@ if ( $description != $file_show )
 	<form action="theme-editor.php" method="post">
 		<strong><label for="theme"><?php _e('Select theme to edit:'); ?> </label></strong>
 		<select name="theme" id="theme">
-<?php
-foreach ( wp_get_themes( array( 'errors' => null ) ) as $a_stylesheet => $a_theme ) {
-	if ( $a_theme->errors() && 'theme_no_stylesheet' == $a_theme->errors()->get_error_code() )
-		continue;
-
-	$selected = $a_stylesheet == $stylesheet ? ' selected="selected"' : '';
-	echo "\n\t" . '<option value="' . esc_attr( $a_stylesheet ) . '"' . $selected . '>' . $a_theme->display('Name') . '</option>';
-}
-?>
+		<?php
+		foreach ( wp_get_themes( array( 'errors' => null ) ) as $a_stylesheet => $a_theme ) {
+			if ( $a_theme->errors() && 'theme_no_stylesheet' == $a_theme->errors()->get_error_code() )
+				continue;
+		
+			$selected = $a_stylesheet == $stylesheet ? ' selected="selected"' : '';
+			echo "\n\t" . '<option value="' . esc_attr( $a_stylesheet ) . '"' . $selected . '>' . $a_theme->display('Name') . '</option>';
+		}
+		?>
 		</select>
 		<?php submit_button( __( 'Select' ), 'button', 'Submit', false ); ?>
 	</form>
@@ -191,24 +191,89 @@ if ( $allowed_files ) :
 </ul>
 <?php endif; ?>
 </div>
+
 <?php if ( $error ) :
 	echo '<div class="error"><p>' . __('Oops, no such file exists! Double check the name and try again, merci.') . '</p></div>';
 else : ?>
 	<form name="template" id="template" action="theme-editor.php" method="post">
 	<?php wp_nonce_field( 'edit-theme_' . $file . $stylesheet ); ?>
-		<div><textarea cols="70" rows="30" name="newcontent" id="newcontent" aria-describedby="newcontent-description"><?php echo $content; ?></textarea>
+	
+
+		<div id="editor">
+		<textarea cols="70" rows="30" name="newcontent" id="newcontent" aria-describedby="newcontent-description"><?php echo $content; ?></textarea>
+
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/codemirror.css">
+		
+		<script src="http://codemirror.net/lib/codemirror.js"></script>
+		<script src="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/mode/css/css.js"></script>
+		
+		<style>
+			#template div {
+				margin-right: 10px !important;
+			}
+			#editor {
+			    width: 75% !important;
+			}			
+		</style>
+		
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/3024-day.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/3024-night.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/abcdef.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/ambiance.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/base16-dark.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/bespin.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/base16-light.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/blackboard.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/cobalt.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/colorforth.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/dracula.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/eclipse.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/elegant.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/erlang-dark.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/hopscotch.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/icecoder.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/isotope.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/lesser-dark.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/liquibyte.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/material.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/mbo.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/mdn-like.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/midnight.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/monokai.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/neat.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/neo.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/night.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/paraiso-dark.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/paraiso-light.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/pastel-on-dark.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/railscasts.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/rubyblue.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/seti.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/solarized.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/the-matrix.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/tomorrow-night-bright.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/tomorrow-night-eighties.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/ttcn.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/twilight.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/vibrant-ink.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/xq-dark.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/xq-light.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/yeti.css">
+		<link rel="stylesheet" href="http://www.getwptoday.com/wptoday/wp-content/themes/wptoday/theme/zenburn.css">
+
+		
 		<input type="hidden" name="action" value="update" />
 		<input type="hidden" name="file" value="<?php echo esc_attr( $relative_file ); ?>" />
 		<input type="hidden" name="theme" value="<?php echo esc_attr( $theme->get_stylesheet() ); ?>" />
 		<input type="hidden" name="scrollto" id="scrollto" value="<?php echo $scrollto; ?>" />
 		</div>
-	<?php if ( ! empty( $functions ) ) : ?>
-		<div id="documentation" class="hide-if-no-js">
-		<label for="docs-list"><?php _e('Documentation:') ?></label>
-		<?php echo $docs_select; ?>
-		<input type="button" class="button" value=" <?php esc_attr_e( 'Look Up' ); ?> " onclick="if ( '' != jQuery('#docs-list').val() ) { window.open( 'http://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=<?php echo urlencode( get_locale() ) ?>&amp;version=<?php echo urlencode( $wp_version ) ?>&amp;redirect=true'); }" />
-		</div>
-	<?php endif; ?>
+		<?php if ( ! empty( $functions ) ) : ?>
+			<div id="documentation" class="hide-if-no-js">
+			<label for="docs-list"><?php _e('Documentation:') ?></label>
+			<?php echo $docs_select; ?>
+			<input type="button" class="button" value=" <?php esc_attr_e( 'Look Up' ); ?> " onclick="if ( '' != jQuery('#docs-list').val() ) { window.open( 'http://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=<?php echo urlencode( get_locale() ) ?>&amp;version=<?php echo urlencode( $wp_version ) ?>&amp;redirect=true'); }" />
+			</div>
+		<?php endif; ?>
 
 		<div>
 		<?php if ( is_child_theme() && $theme->get_stylesheet() == get_template() ) : ?>
@@ -223,6 +288,82 @@ else : ?>
 <?php endif; ?>
 		</div>
 	</form>
+
+<p>Select a theme: <select onchange="selectTheme()" id=select>
+    <option selected>default</option>
+    <option>3024-day</option>
+    <option>3024-night</option>
+    <option>abcdef</option>
+    <option>ambiance</option>
+    <option>base16-dark</option>
+    <option>base16-light</option>
+    <option>bespin</option>
+    <option>blackboard</option>
+    <option>cobalt</option>
+    <option>colorforth</option>
+    <option>dracula</option>
+    <option>eclipse</option>
+    <option>elegant</option>
+    <option>erlang-dark</option>
+    <option>hopscotch</option>
+    <option>icecoder</option>
+    <option>isotope</option>
+    <option>lesser-dark</option>
+    <option>liquibyte</option>
+    <option>material</option>
+    <option>mbo</option>
+    <option>mdn-like</option>
+    <option>midnight</option>
+    <option>monokai</option>
+    <option>neat</option>
+    <option>neo</option>
+    <option>night</option>
+    <option>paraiso-dark</option>
+    <option>paraiso-light</option>
+    <option>pastel-on-dark</option>
+    <option>railscasts</option>
+    <option>rubyblue</option>
+    <option>seti</option>
+    <option>solarized dark</option>
+    <option>solarized light</option>
+    <option>the-matrix</option>
+    <option>tomorrow-night-bright</option>
+    <option>tomorrow-night-eighties</option>
+    <option>ttcn</option>
+    <option>twilight</option>
+    <option>vibrant-ink</option>
+    <option>xq-dark</option>
+    <option>xq-light</option>
+    <option>yeti</option>
+    <option>zenburn</option>
+</select>
+</p>
+
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("newcontent"), {
+    lineNumbers: true,
+    styleActiveLine: true,
+    matchBrackets: true
+  });
+  var input = document.getElementById("select");
+  function selectTheme() {
+    var theme = input.options[input.selectedIndex].textContent;
+    editor.setOption("theme", theme);
+    location.hash = "#" + theme;
+  }
+  var choice = (location.hash && location.hash.slice(1)) ||
+               (document.location.search &&
+                decodeURIComponent(document.location.search.slice(1)));
+  if (choice) {
+    input.value = choice;
+    editor.setOption("theme", choice);
+  }
+  CodeMirror.on(window, "hashchange", function() {
+    var theme = location.hash.slice(1);
+    if (theme) { input.value = theme; selectTheme(); }
+  });
+</script>	
+	
 <?php
 endif; // $error
 ?>
